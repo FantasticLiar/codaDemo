@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			p {
+				text-indent: 22px;
+			}
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			.mui-off-canvas-left {
+				color: #fff;
+			}
+			.title {
+				margin: 35px 15px 10px;
+			}
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			input {
+				color: #000;
+			}
+			#map {
+				width: 100%;
+				position: fixed;
+				top: 0px;
+				bottom: 0px;
+				line-height: 200px;
+				text-align: center;
+				background: #FFFFFF;
+			}
+            .touch {
+                position: absolute;
+                z-index: 999999;
+                left: 300px;
+                filter:alpha(Opacity=50); 
+                opacity: 0.4;
+            }
+            .jingqu{
+            	position: absolute;
+            	z-index: 999999;
+            }
+	        #container {
+	        	height:640px;
+	        	width:100%;
+	        }
+		</style>
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="title" style="font-size: x-large;">山城智游</div>
+						<div class="content">
+							山城智游，是一款针对重庆旅游，结合交通大数据的旅行推荐app,志在打造重庆旅游一站式服务，为新老旅客提供更优质的服务。
+							<p style="margin: 10px 15px;">
+								<button id="offCanvasHide" type="button" class="mui-btn mui-btn-success mui-btn-block" style="padding: 5px 20px;">登录/注册</button>
+							</p>
+
+						</div>
+						<div class="title" style="margin-bottom: 25px;font-size: x-large;">功能区</div>
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+							<li class="mui-table-view-cell">
+								<a style="text-align: center;font-family: '微软雅黑';">
+									我 的 行 程
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a style="text-align: center;font-family: '微软雅黑';">
+									我 的 评 价
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a style="text-align: center;font-family: '微软雅黑';">
+									我 的 消 息
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a style="text-align: center;font-family: '微软雅黑';">
+									周 边
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a style="text-align: center;font-family: '微软雅黑';">
+									设 置
+								</a>
+							</li>
+							<p style="margin: 10px 15px;">
+								<button id="offCanvasHide" type="button" class="mui-btn mui-btn-danger mui-btn-block" style="padding: 10px 20px;">退出登录</button>
+							</p>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+                    <div class="mui-title mui-input-row mui-search">
+						<input type="search" class="mui-input-clear" placeholder="搜 索">
+					</div>
+					<a class="mui-btn mui-btn-link mui-pull-right" href="index.html" target="_self">关闭</a>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<!--<div class="mui-content-padded">
+							<p>这是可拖动式右滑导航示例，主页面和菜单在一个HTML文件中， 优点是支持拖动手势（跟手），缺点是不支持菜单内容在多页面的复用； 当前页面为主界面，你可以在主界面放置任何内容； 打开侧滑菜单有多种方式： 1、在当前页面向右拖动； 2、点击页面左上角的
+								<span class="mui-icon mui-icon-bars"></span> 图标； 3、通过JS API触发（例如点击如下蓝色按钮体验）；
+								<span class="android-only">4、Android手机按menu键；</span>
+							</p>
+							<p style="padding: 5px 20px;margin-bottom: 5px;">
+								<button id="offCanvasShow" type="button" class="mui-btn mui-btn-primary mui-btn-block" style="padding: 10px;">
+									显示侧滑菜单
+								</button>
+							</p>
+							<p>侧滑菜单的移动动画，支持多种效果，切换如下选项体验不同动画效果：</p>
+
+						</div>
+
+						<form class="mui-input-group" style="margin-bottom: 15px;">
+							<div class="mui-input-row mui-radio">
+								<label>主界面移动、菜单不动</label>
+								<input name="style" type="radio" checked="" value="main-move">
+							</div>
+							<div class="mui-input-row mui-radio">
+								<label>主界面不动、菜单移动</label>
+								<input name="style" type="radio" value="menu-move">
+							</div>
+							<div class="mui-input-row mui-radio mui-hidden" id="move-togger">
+								<label>整体移动</label>
+								<input name="style" type="radio" value="all-move">
+							</div>
+							<div class="mui-input-row mui-radio">
+								<label>缩放式侧滑（类手机QQ）</label>
+								<input name="style" type="radio" value="main-move-scalable">
+							</div>
+						</form>-->
+						<div id="container">地图加载中...</div>  
+					</div>
+				</div>
+				<div class="touch" style="top: 120px;">
+					<a href="rankLists.html" target="_self"><img src="images/float_three/traffic_circle.png" style="width: 50px; height: 50px;"/></a>
+            	</div>
+				<div class="touch" style="top: 180px;">
+               		<a href="roads.html" target="_self"><img src="images/float_three/rank_circle.png" style="width: 50px; height: 50px;" /></a>
+            	</div>
+            	<div class="touch" style="top: 240px;">
+               		<img id="heatChange" src="images/float_three/heat_circle.png" style="width: 50px; height: 50px;" />
+            	</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+				<!--底部信息-->
+				<nav id="bottom" class="mui-bar mui-bar-tab" style="color: aliceblue;height: auto;">
+	           		<a style="color: blue;font-family:'微软雅黑';" href="#" target="_self"><strong style="color: blue;">当前位置：</strong>渝中区邹容路100号</a>
+	        	</nav>
+	        	<!--悬浮的景区图片-->
+	        	<div class="jingqu" style="top: 450px;left: 122px;">
+	        		<a href="jingqujieshao.html" target="_self">
+	        			<img src="images/rank/1,1/JFB11.jpg" style="width: 40px; height: 40px;border-radius: 25px;" />
+		               	<br/>
+		               	<small>解放碑</small>
+	        		</a>
+	            </div>
+	            <div class="jingqu" style="top: 320px;left: 310px;">
+	            	<a href="#" target="_self">
+	            		<img src="images/rank/1,1/CTM11.jpg" style="width: 40px; height: 40px;border-radius: 25px;" />
+		               	<br/>
+		               	<small>朝天门</small>
+	            	</a>
+	            </div>
+	            <div class="jingqu" style="top: 355px;left: 145px;">
+	            	<a href="#">
+	            		<img src="images/rank/1,1/HYD11.jpg" style="width: 40px; height: 40px;border-radius: 25px;" />
+	               		<br/>
+	               		<small>洪崖洞</small>
+	            	</a>
+	            </div>
+			</div>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<!--<script type="text/javascript">
+			var em = null,
+				map = null;
+			// H5 plus事件处理
+			function plusReady() {
+				// 确保DOM解析完成
+				if(!em || !window.plus || map) {
+					return
+				};
+				map = new plus.maps.Map("map");
+			}
+			if(window.plus) {
+				plusReady();
+			} else {
+				document.addEventListener("plusready", plusReady, false);
+			}
+			// DOMContentloaded事件处理
+			document.addEventListener("DOMContentLoaded", function() {
+				em = document.getElementById("map");
+				plusReady();
+			}, false);
+		</script>-->
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=51QoFA3KpsBGESPl8yPICjr0evUPKigx"></script>  
+    <script type="text/javascript" src="js/Heatmap_min.js"></script> 
+	<script type="text/javascript">  
+	//获取当前位置  
+	var currentLon,currentLat;  
+	mui.plusReady(function() {  
+	                plus.geolocation.getCurrentPosition(translatePoint,function(e){  
+	                    mui.toast("异常:" + e.message);  
+	       });  
+	});  
+	//当前位置  
+	function translatePoint(position){  
+	    currentLon = position.coords.longitude;  
+	    currentLat= position.coords.latitude;  
+	    console.log("当前位置："+currentLon +","+currentLat);  
+	}
+	
+    var map = new BMap.Map("container");          // 创建地图实例  
+  
+    var point = new BMap.Point(106.582701,29.567461);  
+    map.centerAndZoom(point, 15);             // 初始化地图，设置中心点坐标和地图级别  
+    map.enableScrollWheelZoom(true); // 允许滚轮缩放 
+    map.addControl(new BMap.NavigationControl());
+	map.addControl(new BMap.ScaleControl());
+	map.addControl(new BMap.OverviewMapControl());
+  
+	var points =[
+{"lng":"106.587707", "lat" : "29.576102", "count" : "4500"},
+{"lng":"106.585138", "lat" : "29.576997", "count" : "1000"},
+{"lng":"106.581635", "lat" : "29.578771", "count" : "3000"},
+{"lng":"106.582785", "lat" : "29.577279", "count" : "2643"},
+{"lng":"106.575940", "lat" : "29.580719", "count" : "4643"},
+{"lng":"106.576856", "lat" : "29.576259", "count" : "2643"},
+{"lng":"106.578940", "lat" : "29.577515", "count" : "2643"},
+{"lng":"106.583647", "lat" : "29.563395", "count" : "4643"},
+{"lng":"106.584384", "lat" : "29.565170", "count" : "3643"},
+{"lng":"106.580431", "lat" : "29.563568", "count" : "4643"},
+{"lng":"106.585659", "lat" : "29.568484", "count" : "5643"},
+{"lng":"106.583773", "lat" : "29.566960", "count" : "3643"},
+{"lng":"106.595253", "lat" : "29.573180", "count" : "5643"},
+{"lng":"106.595379", "lat" : "29.569819", "count" : "3643"},
+{"lng":"106.593546", "lat" : "29.563065", "count" : "2643"},
+{"lng":"106.593546", "lat" : "29.563065", "count" : "1643"},
+{"lng":"106.592181", "lat" : "29.568625", "count" : "1643"},
+{"lng":"106.575113", "lat" : "29.564290", "count" : "2643"},
+{"lng":"106.582725", "lat" : "29.577279", "count" : "643"},
+{"lng":"106.575940", "lat" : "29.580719", "count" : "4643"},
+{"lng":"106.576256", "lat" : "29.576259", "count" : "643"},
+{"lng":"106.578940", "lat" : "29.577515", "count" : "643"},
+{"lng":"106.584384", "lat" : "29.565170", "count" : "3643"},
+{"lng":"106.580431", "lat" : "29.563568", "count" : "4643"},
+{"lng":"106.585659", "lat" : "29.568484", "count" : "7643"},
+{"lng":"106.583773", "lat" : "29.566960", "count" : "2643"},
+{"lng":"106.595253", "lat" : "29.573180", "count" : "5643"},
+{"lng":"106.595379", "lat" : "29.569819", "count" : "3643"},
+{"lng":"106.593546", "lat" : "29.563065", "count" : "2643"},
+{"lng":"106.593546", "lat" : "29.563065", "count" : "1643"},
+{"lng":"106.592181", "lat" : "29.568625", "count" : "1643"},
+{"lng":"106.592181", "lat" : "29.568625", "count" : "3643"},
+{"lng":"106.572634", "lat" : "29.561117", "count" : "6643"},
+{"lng":"106.575113", "lat" : "29.564290", "count" : "2643"},
+
+	  ];
+    //这里面添加房价的经纬度，我的太多了，所以只拿了三个  
+  
+    if(!isSupportCanvas()){  
+        alert('热力图目前只支持有canvas支持的浏览器,您所使用的浏览器不能使用热力图功能~')  
+    }  
+    //详细的参数,可以查看heatmap.js的文档 https://github.com/pa7/heatmap.js/blob/master/README.md  
+    //参数说明如下:  
+    /* visible 热力图是否显示,默认为true  
+     * opacity 热力的透明度,1-100  
+     * radius 势力图的每个点的半径大小  
+     * gradient  {JSON} 热力图的渐变区间 . gradient如下所示  
+     *  {  
+            .2:'rgb(0, 255, 255)',  
+            .5:'rgb(0, 110, 255)',  
+            .8:'rgb(100, 0, 255)'  
+        }  
+        其中 key 表示插值的位置, 0~1.  
+            value 为颜色值.  
+     */  
+    heatmapOverlay = new BMapLib.HeatmapOverlay({"radius":80});  
+    map.addOverlay(heatmapOverlay);  
+    heatmapOverlay.setDataSet({data:points,max:11000});  
+    heatmapOverlay.hide();  
+  
+  	//添加当前所在位置标签
+	var currentLocation = new BMap.Marker(point);  // 创建标注
+	map.addOverlay(currentLocation);               // 将标注添加到地图中
+	currentLocation.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+//	//添加景区图标
+//	var json_data = [[106.5734333,29.56016388],[106.57420277,29.5647333],[106.581425,29.5668305],[106.5794416,29.5603833]];
+//	var pointArray = new Array();
+//	for(var i=0;i<json_data.length;i++){
+//		var marker = new BMap.Marker(new BMap.Point(json_data[i][0], json_data[i][1])); // 创建点
+//		map.addOverlay(marker);    //增加点
+//		pointArray[i] = new BMap.Point(json_data[i][0], json_data[i][1]);
+//		marker.addEventListener("click",attribute);
+//	}
+////	//让所有点在视野范围内
+////	map.setViewport(pointArray);
+//	//获取覆盖物位置
+//	function attribute(e){
+//		var p = e.target;
+//		var pp=new BMap.Point(p.getPosition().lng,p.getPosition().lat);
+//		var opts = {    
+//	    width : 180,     // 信息窗口宽度    
+//	    height: 80,     // 信息窗口高度    
+//	    title : "景区"  // 信息窗口标题 
+//		}  
+//		var text="world";
+//		var sContent = "<div>"
+//			+"<b>景区介绍</b>"
+//			+"<br>解放碑"
+//			+"<br>地址：建国路乙118号京汇大厦2楼<br>"
+//			+"<p id='jiefangbeiJump'>"
+//			+"景区详情"
+//			+"</p>"
+//			"</div>";
+//		var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象    
+//		map.openInfoWindow(infoWindow,pp);      // 打开信息窗口
+//	}
+    //判断浏览区是否支持canvas  
+    function isSupportCanvas(){  
+        var elem = document.createElement('canvas');  
+        return !!(elem.getContext && elem.getContext('2d'));  
+    }  
+    function setGradient(){  
+        /*格式如下所示:  
+        {  
+            0:'rgb(102, 255, 0)',  
+            .5:'rgb(255, 170, 0)',  
+            1:'rgb(255, 0, 0)'  
+        }*/  
+        var gradient = {};  
+        var colors = document.querySelectorAll("input[type='color']");  
+        colors = [].slice.call(colors,0);  
+        colors.forEach(function(ele){  
+            gradient[ele.getAttribute("data-key")] = ele.value;  
+        });  
+        heatmapOverlay.setOptions({"gradient":gradient});  
+    }  
+  	//热力点开关
+  	document.getElementById("heatChange").addEventListener('tap',function(){
+  		heatmapOverlay.toggle();
+  	}); 
+</script>   
+		<script>
+			mui.init();
+			 //侧滑容器父节点
+			var offCanvasWrapper = mui('#offCanvasWrapper');
+			 //主界面容器
+			var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+			 //菜单容器
+			var offCanvasSide = document.getElementById("offCanvasSide");
+//			if (!mui.os.android) {
+//				document.getElementById("move-togger").classList.remove('mui-hidden');
+//				var spans = document.querySelectorAll('.android-only');
+//				for (var i = 0, len = spans.length; i < len; i++) {
+//					spans[i].style.display = "none";
+//				}
+//			}
+			 //移动效果是否为整体移动
+			var moveTogether = false;
+			 //侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
+			var classList = offCanvasWrapper[0].classList;
+			 //变换侧滑动画移动效果；
+			mui('.mui-input-group').on('change', 'input', function() {
+				if (this.checked) {
+					offCanvasSide.classList.remove('mui-transitioning');
+					offCanvasSide.setAttribute('style', '');
+					classList.remove('mui-slide-in');
+					classList.remove('mui-scalable');
+//					switch (this.value) {
+//						case 'main-move':
+//							if (moveTogether) {
+//								//仅主内容滑动时，侧滑菜单在off-canvas-wrap内，和主界面并列
+//								offCanvasWrapper[0].insertBefore(offCanvasSide, offCanvasWrapper[0].firstElementChild);
+//							}
+//							break;
+//						case 'main-move-scalable':
+//							if (moveTogether) {
+//								//仅主内容滑动时，侧滑菜单在off-canvas-wrap内，和主界面并列
+//								offCanvasWrapper[0].insertBefore(offCanvasSide, offCanvasWrapper[0].firstElementChild);
+//							}
+//							classList.add('mui-scalable');
+//							break;
+//						case 'menu-move':
+//							classList.add('mui-slide-in');
+//							break;
+//						case 'all-move':
+//							moveTogether = true;
+//							//整体滑动时，侧滑菜单在inner-wrap内
+//							offCanvasInner.insertBefore(offCanvasSide, offCanvasInner.firstElementChild);
+//							break;
+//					}
+					offCanvasWrapper[0].insertBefore(offCanvasSide, offCanvasWrapper[0].firstElementChild);
+					classList.add('mui-scalable');
+					offCanvasWrapper.offCanvas().refresh();
+				}
+			});
+//			 //主界面‘显示侧滑菜单’按钮的点击事件
+//			document.getElementById('offCanvasShow').addEventListener('tap', function() {
+//				offCanvasWrapper.offCanvas('show');
+//			});
+//			 //菜单界面，‘关闭侧滑菜单’按钮的点击事件
+//			document.getElementById('offCanvasHide').addEventListener('tap', function() {
+//				offCanvasWrapper.offCanvas('close');
+//			});
+			 //主界面和侧滑菜单界面均支持区域滚动；
+			mui('#offCanvasSideScroll').scroll();
+			mui('#offCanvasContentScroll').scroll();
+			 //实现ios平台原生侧滑关闭页面；
+			if (mui.os.plus && mui.os.ios) {
+				mui.plusReady(function() { //5+ iOS暂时无法屏蔽popGesture时传递touch事件，故该demo直接屏蔽popGesture功能
+					plus.webview.currentWebview().setStyle({
+						'popGesture': 'none'
+					});
+				});
+			}
+			mui('body').on('tap','a',function(){
+		    window.location.href=this.href;
+		});
+	</script>
+	</body>
+
+</html>

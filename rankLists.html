@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		<style>
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			.my_img {
+				line-height:42px;
+				max-width:135px;
+				height:90px;
+				margin-right: 20px;
+			}
+			.my_bar {
+				margin-left: 150px;
+				width: 160px;
+				height: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-map mui-pull-left" href="home.html"></a>
+			<h1 class="mui-title" style="font-family:'微软雅黑';">当前景区人流排行榜</h1>
+			<a class="mui-icon mui-icon-pengyouquan mui-pull-right"></a>
+		</header>
+		<div class="mui-content">
+			<div style="margin: 0;">
+				<h5 style="text-align: right;">刷新倒计时：<span id="currentTime" class="mui-pull-right" style="margin-right: 10px;">60s</span></h5>
+			</div>
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell mui-media">
+					<a href="jingqujieshao.html">
+						<img class="my_img mui-pull-left" src="images/rank/16,9/JFB169.jpg">
+						<div class="">
+							<h3>解放碑</h3>
+							<h5>地址：<span>渝中区邹容路100号</span></h5>
+							<h5>热力指数：<strong>85分</strong></h5>
+							<div id="bar1" class="mui-progressbar my_bar">
+								<span></span>
+							</div>
+						</div>
+					</a>
+				</li>
+				
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="my_img mui-pull-left" src="images/rank/16,9/HYD169.jpg">
+						<div class="">
+							<h3>洪崖洞</h3>
+							<h5>地址：<span>渝中区嘉陵江滨江路88号</span></h5>
+							<h5>热力指数：<strong>82分</strong></h5>
+							<div id="bar2" class="mui-progressbar my_bar">
+								<span></span>
+							</div>
+						</div>
+					</a>
+				</li>
+				
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="my_img mui-pull-left" src="images/rank/16,9/CTM169.jpg">
+						<div class="">
+							<h3>朝天门</h3>
+							<h5>地址：<span>渝中区长滨路1号</span></h5>
+							<h5>热力指数：<strong>76分</strong></h5>
+							<div id="bar3" class="mui-progressbar my_bar">
+								<span></span>
+							</div>
+						</div>
+					</a>
+				</li>
+				
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="my_img mui-pull-left" src="images/rank/16,9/CQK169.jpg">
+						<div class="">
+							<h3>磁器口</h3>
+							<h5>地址：<span>沙坪坝区磁南街1号</span></h5>
+							<h5>热力指数：<strong>83分</strong></h5>
+							<div id="bar4" class="mui-progressbar my_bar">
+								<span></span>
+							</div>
+						</div>
+					</a>
+				</li>
+				
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="my_img mui-pull-left" src="images/rank/16,9/SD169.jpg">
+						<div class="">
+							<h3>长江索道</h3>
+							<h5>地址：<span>渝中区新华路151号</span></h5>
+							<h5>热力指数：<strong>79分</strong></h5>
+							<div id="bar5" class="mui-progressbar my_bar">
+								<span></span>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="my_img mui-pull-left" src="images/rank/16,9/RMDLT11.jpg">
+						<div class="">
+							<h3>人民大礼堂</h3>
+							<h5>地址：<span>渝中区人民路173号</span></h5>
+							<h5>热力指数：<strong>80分<></h5>
+							<div id="bar6" class="mui-progressbar my_bar">
+								<span></span>
+							</div>
+						</div>
+					</a>
+				</li>
+
+			</ul>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui('#bar1').progressbar({progress:85}).show();
+			mui('#bar2').progressbar({progress:82}).show();
+			mui('#bar3').progressbar({progress:76}).show();
+			mui('#bar4').progressbar({progress:83}).show();
+			mui('#bar5').progressbar({progress:79}).show();
+			mui('#bar6').progressbar({progress:80}).show();
+			mui('body').on('tap', 'a', function() {
+				window.location.href = this.href;
+			});
+		</script>
+
+	</body>
+</html>

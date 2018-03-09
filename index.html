@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title>引导页0</title>
+		<link href="css/mui.min.css" rel="stylesheet" type="text/css" />
+		<link href="css/app.css" rel="stylesheet" type="text/css" />
+		<link href="css/icons-extra.css" rel="stylesheet" type="text/css" />
+		<link href="css/vjpage.css" rel="stylesheet" type="text/css" />
+		<link href="css/config.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body data-curpagename="index">
+		<div id="index_jTurns1" class="mui-slider mui-fullscreen vjdistitle">
+			<div class="mui-slider-group mui-slider-loop">
+				<div class="mui-slider-item mui-slider-item-duplicate">
+				</div>
+				<div class="mui-slider-item mui-active">
+					<img id="index_jImages1" src="images/jbg011.jpg" class="Timage Timageaoto" />
+					<map name="index_jImages1_map" id="index_jImages1_map">
+			</map>
+					<div id="index_jAbsolutediv3" style="z-index: 800">
+						<div id="index_jPanel2" class="vjcenterpanel Panel_c">
+							<div id="index_jLabel1">山城智游</div>
+							<div id="index_jLabel2">让您的旅行更自由</div>
+							<div id="index_jLabel3">避免高峰出行，高效规划旅行，做时间的主人</div>
+						</div>
+					</div>
+					<p class="mui-slider-title">标题1</p>
+				</div>
+				<div class="mui-slider-item">
+					<img id="index_jImages2" src="images/jbg012.jpg" class="Timage Timageaoto" />
+					<map name="index_jImages2_map" id="index_jImages2_map">
+			</map>
+					<div id="index_jAbsolutediv2" style="z-index: 800">
+						<div id="index_jPanel3" class="vjcenterpanel Panel_c">
+							<div id="index_jLabel4">景区评价、实时弹幕</div>
+							<div id="index_jLabel5">重庆旅游规划一站式服务</div>
+						</div>
+					</div>
+					<p class="mui-slider-title">标题2</p>
+				</div>
+				<div class="mui-slider-item">
+					<img id="index_jImages3" src="images/jbg013.jpg" class="Timage Timageaoto" />
+					<map name="index_jImages3_map" id="index_jImages3_map">
+			</map>
+					<div id="index_jAbsolutediv4" style="z-index: 800">
+						<div id="index_jPanel1" class="vjcenterpanel Panel_c">
+							<form id="index_jHtmlForm1" name="index_jHtmlForm1" method="post" action=""  class="mui-input-group">
+								<div id="index_jEdit1" class="mui-input-row">
+									<input type="text" id="username" placeholder="请输入：用户名/手机/邮箱">
+								</div>
+								<div id="index_jEdit2" class="mui-input-row mui-password">
+									<input type="password" id="password" class="mui-input-password" placeholder="请输入密码">
+								</div>
+							</form>
+							<div id="index_jPanel4" class="">
+
+							</div>
+							<button id="index_jButton1" type="button" class="mui-btn mui-btn-success btnsize_default mui-btn-block">登录</button>
+							<div id="page1_jPanel5" class="mui-content-padded">
+								<span id="page1_jIconfont1" class="mui-icon mui-icon-qq"></span>
+								<div class="mui-pull-right">找回密码</div>
+								<div class="mui-pull-right" style="margin-right: 10px;">
+									<a href="register.html" target="_self">注册</a>
+								</div>
+								<span class="mui-icon mui-icon-weibo"></span>
+							</div>
+						</div>
+					</div>
+					<p class="mui-slider-title">标题3</p>
+				</div>
+				<div class="mui-slider-item mui-slider-item-duplicate">
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+
+	</body>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init({
+			gestureConfig: {
+				tap: true,
+				doubletap: true,
+				longtap: true,
+				hold: true,
+				drag: true,
+				swipe: true,
+				release: true
+			}
+		});
+
+		mui('#index_jButton1')[0].addEventListener('tap', function(e) {
+//			if(checkForm()){
+			window.open('home.html', '_self');
+//			}
+		})
+		mui('body').on('tap', 'a', function() {
+			window.location.href = this.href;
+		});
+		function checkForm(form) {
+			var username=document.getElementById('username').value;
+			var password=document.getElementById('password').value;
+			if(username == "") {
+					alert("用户名不能为空!");
+					return false;
+				}
+			if(password == "") {
+				alert("密码不能为空!");
+				return false;
+			}
+			if(username=='admin'&&password=='123'){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	</script>
+
+</html>

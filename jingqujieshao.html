@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<!--<link rel="stylesheet" type="text/css" href="../css/app.css" />-->
+		<style>
+			.comments_Avatar {
+				width: 30px;
+				height: 30px;
+				border-radius: 15px;
+				margin: 5px 0px;
+			}
+			
+			.comments_div {
+				border: 1px solid #696;
+				text-align: center;
+				border-radius: 8px;
+				box-shadow: #666 0px 0px 10px;
+				background: #F3F3F3;
+			}
+			.button_pre {
+				align-items: center;
+				box-shadow: #669966;
+				margin: 2px 3px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height: 1050px;
+			}
+		</style>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-left-nav mui-pull-left" href="home.html" target="_self"></a>
+			<div class="mui-content-padded">
+				<h3 style="text-align: center;margin-top: 12px;">景区详情</h3>
+				<!--<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));" />-->
+			</div>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div style="display: none;" id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item" href="#item1mobile">
+						景区介绍
+					</a>
+					<a class="mui-control-item" href="#item2mobile">
+						人流分析
+					</a>
+					<a class="mui-control-item" href="#item3mobile">
+						智游实评
+					</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<img src="images/jiefangbei.png" />
+								<div style="margin: 15px 10px;">
+									<img src="images/introduce_img.png" style="width: 26px;" />
+									<span style="font-size:24px;font-family: '微软雅黑';">景区介绍</span>
+								</div>
+								<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));" />
+
+								<p style="margin: 10px 15px 20px;">
+									&ensp; &ensp; &ensp; 解放碑是重庆市的标志建筑物之一，位于重庆市渝中区商业区中心部位，民族路、民权路、邹容路交汇的十字路口处。纪念碑高27.5米，有旋梯可达顶端；碑顶设时钟、方向标志和风速风向仪。解放碑记录着重庆的历史与文化，支撑着重庆过去和未来，如今的解放碑已是中央商务区的代名词，是重庆核心的城市名片，是重庆十大文化符号之一。
+								</p>
+
+								<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));" />
+								<div style="margin: 15px 10px;">
+									<img src="images/introduce_img.png" style="width: 26px;" />
+									<span style="font-size:24px;font-family: '微软雅黑';">攻略</span>
+								</div>
+								<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));" />
+								<ul class="hm-description">
+									<h4>开放时间：<span>全天</span></h4>
+									<h4>交  通：<span>1号线、3号线</span></h4>
+									<h4>门  票：<span>免费</span></h4>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<h3 style="text-align: center;">解放碑</h3>
+								<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));" />
+								<h3>人流密度分析</h3>
+								<div class="chart" id="lineChart" style="width: 100%;height: 220px;"></div>
+								<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));" />
+								<div style="margin: 15px 10px;">
+									<img src="images/introduce_img.png" style="width: 26px;" />
+									<span style="font-size:21px;font-family: '微软雅黑';">目前人流密度</span>
+									<span><img src="images/look/soso.png" style="width: 30px;margin-left: 20px;"/></span>
+									<small>稀疏</small>
+									<span><img src="images/faceRank.png" style="width: 60px;height: 12px;"></span>
+									<small>拥挤</small>
+								</div>
+								<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));" />
+								<div>
+									<button type="button" id='predict' class="mui-btn" style="float: right;">预测</button>
+									<button type="button" id='today' class="mui-btn mui-btn-success" style="float: right;">当日</button>
+									<button type="button" id='old' class="mui-btn" style="float: right;">历史</button>
+								</div>
+								<br/><br/>
+								<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));" />
+								<div align="center" id="button_group">
+									<button type="button" id='monday' class="button_pre mui-btn mui-btn-primary ">星期一</button>
+									<button type="button" id='tuesday' class="button_pre mui-btn mui-btn-primary  ">星期二</button>
+									<button type="button" id='wednesday' class="button_pre mui-btn mui-btn-primary  ">星期三</button>
+									<button type="button" id='thursday' class="button_pre mui-btn mui-btn-primary ">星期四</button>
+									<button type="button" id='friday' class="button_pre mui-btn mui-btn-primary  ">星期五</button>
+									<button type="button" id='saturday' class="button_pre mui-btn mui-btn-primary  ">星期六</button>
+									<button type="button" id='sunday' class="button_pre mui-btn mui-btn-primary  ">星期天</button>
+								</div>
+								<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));" />
+							</div>
+						</div>
+
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<img src="images/ciyun.png" style="width: 98%;height: 200px;" />
+								<div style="margin: 0px 15px;">
+									<img src="images/introduce_img.png" style="width: 26px;" />
+									<span style="color:#87CEFA  ;font-size:18px;font-family: '微软雅黑';">智游实评</span>
+								</div>
+								<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+									<div class="mui-row">
+										<div class="mui-col-xs-6">
+											<li class="mui-table-view-cell comments_div">
+												<img src="images/comments/cm1.jpg" style="width: 100%;height: 150px;" />
+												<p>人美，环境也美</p>
+												<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));margin: 2px 0px;" />
+												<img class="mui-pull-left comments_Avatar" src="images/avator/ComHead2.jpg" style="width: 30px;" />
+												<p class="mui-pull-left" style="margin: 0px 5px;">liar</p>
+												<br />
+												<p class="mui-pull-left" style="margin: 0px 5px;">2分钟前</p>
+												<p class="mui-pull-right">4</p>
+												<a class="mui-pull-right"><span class="mui-icon mui-icon-eye" style="margin-right: 10px;"></span></a>
+											</li>
+											<li class="mui-table-view-cell comments_div">
+												<img src="images/comments/cm3.jpg" style="width: 100%;height: 150px;" />
+												<p>人美，环境也美</p>
+												<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));margin: 2px 0px;" />
+												<img class="mui-pull-left comments_Avatar" src="images/avator/ComHead3.jpg" style="width: 30px;" />
+												<p class="mui-pull-left" style="margin: 0px 5px;">liar</p>
+												<br />
+												<p class="mui-pull-left" style="margin: 0px 5px;">2分钟前</p>
+												<p class="mui-pull-right">4</p>
+												<a class="mui-pull-right"><span class="mui-icon mui-icon-eye" style="margin-right: 10px;"></span></a>
+											</li>
+											<li class="mui-table-view-cell comments_div">
+												<img src="images/comments/cm5.jpg" style="width: 100%;height: 180px;" />
+												<p>炮竹声声辞旧岁，欢欢乐乐过新年</p>
+												<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));margin: 2px 0px;" />
+												<img class="mui-pull-left comments_Avatar" src="images/avator/ComHead5.jpg" style="width: 30px;" />
+												<p class="mui-pull-left" style="margin: 0px 5px;">彭于晏</p>
+												<br />
+												<p class="mui-pull-left" style="margin: 0px 5px;">5分钟前</p>
+												<p class="mui-pull-right">12</p>
+												<a class="mui-pull-right"><span class="mui-icon mui-icon-eye" style="margin-right: 10px;"></span></a>
+											</li>
+										</div>
+										<div class="mui-col-xs-6">
+											<li class="mui-table-view-cell comments_div">
+												<img src="images/comments/cm2.jpg" style="width: 100%;height: 180px;" />
+												<p>炮竹声声辞旧岁，欢欢乐乐过新年</p>
+												<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));margin: 2px 0px;" />
+												<img class="mui-pull-left comments_Avatar" src="images/avator/ComHead1.jpg" style="width: 30px;" />
+												<p class="mui-pull-left" style="margin: 0px 5px;">彭于晏</p>
+												<br />
+												<p class="mui-pull-left" style="margin: 0px 5px;">5分钟前</p>
+												<p class="mui-pull-right">12</p>
+												<a class="mui-pull-right"><span class="mui-icon mui-icon-eye" style="margin-right: 10px;"></span></a>
+											</li>
+											<li class="mui-table-view-cell comments_div">
+												<img src="images/comments/cm4.jpg" style="width: 100%;height: 180px;" />
+												<p>炮竹声声辞旧岁，欢欢乐乐过新年</p>
+												<hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));margin: 2px 0px;" />
+												<img class="mui-pull-left comments_Avatar" src="images/avator/ComHead4.jpg" style="width: 30px;" />
+												<p class="mui-pull-left" style="margin: 0px 5px;">彭于晏</p>
+												<br />
+												<p class="mui-pull-left" style="margin: 0px 5px;">5分钟前</p>
+												<p class="mui-pull-right">12</p>
+												<a class="mui-pull-right"><span class="mui-icon mui-icon-eye" style="margin-right: 10px;"></span></a>
+											</li>
+										</div>
+									</div>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/echarts-all.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false
+			});
+			(function($) {
+				$('.mui-scroll-wrapper').scroll({
+					indicators: false //是否显示滚动条
+				});
+				var sliderSegmentedControl = document.getElementById('sliderSegmentedControl');
+				$('.mui-input-group').on('change', 'input', function() {
+					if(this.checked) {
+						sliderSegmentedControl.className = 'mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-' + this.value;
+						//force repaint
+						sliderProgressBar.setAttribute('style', sliderProgressBar.getAttribute('style'));
+					}
+				});
+			})(mui);
+		</script>
+		<script>
+			mui.init();
+			var todayPeople=[
+					[80,229,242,31,141,66,593,539,869,907,1363,'-','-','-','-','-','-','-','-','-','-','-','-','-'],
+					['-','-','-','-','-','-','-','-','-','-',1363,1487,2056,1838,2021,1998,1941,2087,2506,2571,3135,2951,2960,146]
+			];
+			var predPeople = [
+			[80,229,242,31,141,66,593,539,869,907,1363,1487,2056,1838,2021,1998,1941,2087,2506,2571,3135,2951,2960,146],
+			[251,42,220,207,10,147,607,477,835,1021,1278,1581,1998,1956,1851,1915,1996,2213,2547,2820,3016,3146,3085,142],
+			[107,143,201,288,27,239,493,717,642,917,1115,1582,2059,1913,1896,1927,1964,2244,2421,2642,3260,3237,3092,40],
+			[185,115,297,86,212,161,374,650,627,884,1114,1697,2080,1863,1951,1864,2000,2308,2345,2824,3093,3010,3104,292],
+			[187,19,112,50,69,16,587,681,724,1079,1326,1618,1946,1936,1855,1931,1993,2161,2462,2681,3232,2976,3043,177],
+			[56,183,16,173,253,150,448,488,620,1056,1339,1519,1863,1941,2077,2081,2028,2311,2551,2561,3182,3091,2924,269],
+			[149,231,18,79,195,40,508,558,842,1025,1214,1521,1930,2104,1965,1961,1964,2307,2334,2792,2994,3050,3134,103]
+				];
+			var getOption = function(chartType) {	
+				var chartOption = {
+					legend: {
+						data: ['历史人流密度','预测人流密度']
+					},
+					color:['blue','red'],
+					grid: {
+						x: 35,
+						x2: 10,
+						y: 30,
+						y2: 25
+					},
+					toolbox: {
+						show: false,
+						feature: {
+							mark: {
+								show: true
+							},
+							dataView: {
+								show: true,
+								readOnly: false
+							},
+							magicType: {
+								show: true,
+								type: ['line', 'bar']
+							},
+							restore: {
+								show: true
+							},
+							saveAsImage: {
+								show: true
+							}
+						}
+					},
+					calculable: false,
+					xAxis: [{
+						type: 'category',
+						data: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12','13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'],
+					}],
+					yAxis: [{
+						type: 'value',
+						splitArea: {
+							show: true
+						}
+					}],
+					series: [{
+							name: '日人流密度',
+							type: chartType,
+							data: todayPeople[0],
+							itemStyle: {
+		                        normal: {
+		                            lineStyle:{
+										width:3,
+										color:"blue"
+									}
+		                        }
+		                    },
+					},
+					{
+							name: '日人流密度',
+							type: chartType,
+							data: todayPeople[1],
+							itemStyle: {
+		                        normal: {
+		                            lineStyle:{
+										width:3,
+										color:"red"
+									}
+		                        }
+		                    },
+						}
+					]
+				};
+				return chartOption;
+			};
+			var byId = function(id) {
+				return document.getElementById(id);
+			};
+			var lineChart = echarts.init(byId('lineChart'));
+			lineChart.setOption(getOption('line'));
+			byId('monday').addEventListener('tap', function() {
+				//更新数据
+				var option = getOption('line');
+				option.series[0].itemStyle.normal.lineStyle['color']='blue';
+				option.series[0].data = predPeople[1];
+				option.series[1].data = predPeople[1];
+				lineChart.setOption(option);
+			});
+			byId('tuesday').addEventListener('tap', function() {
+				//更新数据
+				var option = getOption('line');
+				option.series[0].itemStyle.normal.lineStyle['color']='blue';
+				option.series[0].data = predPeople[2];
+				option.series[1].data = predPeople[2];
+				lineChart.setOption(option);
+			});
+			byId('wednesday').addEventListener('tap', function() {
+				//更新数据
+				var option = getOption('line');
+				option.series[0].itemStyle.normal.lineStyle['color']='red';
+				option.series[0].data = predPeople[3];
+				option.series[1].data = predPeople[3];
+				lineChart.setOption(option);
+			});
+			byId('thursday').addEventListener('tap', function() {
+				//更新数据
+				var option = getOption('line');
+				option.series[0].itemStyle.normal.lineStyle['color']='red';
+				option.series[0].data = predPeople[4];
+				option.series[1].data = predPeople[4];
+				lineChart.setOption(option);
+			});
+			byId('friday').addEventListener('tap', function() {
+				//更新数据
+				var option = getOption('line');
+				option.series[0].itemStyle.normal.lineStyle['color']='red';
+				option.series[0].data = predPeople[5];
+				option.series[1].data = predPeople[5];
+				lineChart.setOption(option);
+			});
+			byId('saturday').addEventListener('tap', function() {
+				//更新数据
+				var option = getOption('line');
+				option.series[0].itemStyle.normal.lineStyle['color']='red';
+				option.series[0].data = predPeople[6];
+				option.series[1].data = predPeople[6];
+				lineChart.setOption(option);
+			});
+			byId('sunday').addEventListener('tap', function() {
+				//更新数据
+				var option = getOption('line');
+				option.series[0].itemStyle.normal.lineStyle['color']='red';
+				option.series[0].data = predPeople[0];
+				option.series[1].data = predPeople[0];
+				lineChart.setOption(option);
+			});
+			
+			
+			//开始的时候所有按钮都不能点击
+			function useButton(flag){
+				if(flag=='old'){
+					remove_disabled('monday');
+					remove_disabled('tuesday');
+					add_disabled('wednesday');
+					add_disabled('thursday');
+					add_disabled('friday');
+					add_disabled('saturday');
+					add_disabled('sunday');
+				}else if(flag=='today'){
+					remove_disabled('monday');
+					remove_disabled('tuesday');
+					add_disabled('wednesday');
+					remove_disabled('thursday');
+					remove_disabled('friday');
+					remove_disabled('saturday');
+					remove_disabled('sunday');
+				}else if(flag=='pred'){
+					add_disabled('monday');
+					add_disabled('tuesday');
+					add_disabled('wednesday');
+					remove_disabled('thursday');
+					remove_disabled('friday');
+					remove_disabled('saturday');
+					remove_disabled('sunday');
+				}else{
+					alert('操作错误');
+					return;
+				}
+			}
+			function add_disabled(day){
+				while (byId(day).classList.contains("mui-disabled")){
+					byId(day).classList.remove("mui-disabled");
+				}
+				byId(day).classList.add("mui-disabled");
+			}
+			function remove_disabled(day){
+				while (byId(day).classList.contains("mui-disabled")){
+					byId(day).classList.remove("mui-disabled");
+				}
+			}
+			useButton('today');
+			
+			//按钮时间绑定
+			byId('old').addEventListener('tap', function() {
+				if(byId('old').classList.contains("mui-btn-success")==true){
+					return;
+				}
+				byId('old').classList.add("mui-btn-success");
+				byId('today').classList.remove("mui-btn-success");
+				byId('predict').classList.remove("mui-btn-success");
+				useButton('old');
+			});
+			byId('predict').addEventListener('tap', function() {
+				if(byId('predict').classList.contains("mui-btn-success")==true){
+					return;
+				}
+				byId('old').classList.remove("mui-btn-success");
+				byId('today').classList.remove("mui-btn-success");
+				byId('predict').classList.add("mui-btn-success");
+				useButton('pred');
+			});
+			byId('today').addEventListener('tap', function() {
+				if(byId('today').classList.contains("mui-btn-success")==true){
+					return;
+				}
+				byId('old').classList.remove("mui-btn-success");
+				byId('predict').classList.remove("mui-btn-success");
+				byId('today').classList.add("mui-btn-success");
+				useButton('today');
+				var option = getOption('line');
+				option.series[0].itemStyle.normal.lineStyle['color']='blue';
+				option.series[0].data = todayPeople[0];
+				option.series[1].data = todayPeople[1];
+				lineChart.setOption(option);
+			});	
+		</script>
+		<script type="text/javascript">
+			mui('body').on('tap', 'a', function() {
+				window.location.href = this.href;
+			});
+		</script>
+	</body>
+
+</html>

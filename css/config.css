@@ -1,0 +1,257 @@
+﻿#index_jPanel2{
+  width: 80%;
+}
+
+#index_jLabel1{
+  font-size: 24px;
+  text-align: center;
+  line-height: 36px;
+}
+
+#index_jLabel2{
+  font-size: 14px;
+  color: #666666;
+  text-align: center;
+}
+
+#index_jLabel3{
+  font-size: 12px;
+  color: #666666;
+  text-align: center;
+}
+
+#index_jPanel3{
+  width: 80%;
+}
+
+#index_jLabel4{
+  font-size: 24px;
+  text-align: center;
+  line-height: 36px;
+}
+
+#index_jLabel5{
+  font-size: 14px;
+  color: #666666;
+  text-align: center;
+}
+
+#index_jPanel1{
+  width: 90%;
+}
+
+#index_jPanel4{
+  min-height: 10px;
+}
+
+#index_jAbsolutediv2{
+  left: 0px;
+  top: 450px;
+  height: 88px;
+  width: 100%;
+  position:absolute;
+}
+
+#index_jAbsolutediv3{
+  left: 0px;
+  top: 450px;
+  height: 114px;
+  width: 100%;
+  position:absolute;
+}
+
+#index_jAbsolutediv4{
+  left: 1px;
+  top: 444px;
+  height: 176px;
+  width: 100%;
+  position:absolute;
+}
+
+#register_jPanel1{
+  background: #0080C0;
+}
+
+#register_jPanel4{
+  min-height: 10px;
+}
+
+#register_jAbsolutediv1{
+  right: 0px;
+  top: 47px;
+  height: 39px;
+  width: 128px;
+  position:absolute;
+}
+
+#register_jLabel2{
+  font-size: 12px;
+}
+
+#register_jLabel3{
+  font-size: 12px;
+}
+
+#register_jIconfont1{
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+#register_jLabel1{
+  font-size: 18px;
+  color: #FFFFFF;
+}
+
+#introduce_jPanel1{
+  background: #0080C0;
+}
+
+#introduce_jLabel1{
+  font-size: 18px;
+  color: #FFFFFF;
+  line-height: 42px;
+}
+
+#introduce_jNavigation2,#introduce_jNavigation2 .mui-control-item,#introduce_jNavigation2,#introduce_jNavigation2 .vj-tablecell{
+  border-color: #000000;
+}
+
+#introduce_jNavigation2{
+  background-color: #FFFFFF;
+}
+
+#introduce_jNavigation2 .mui-control-item,#introduce_jNavigation2 .vj-tablecell{
+  color: #000000;
+}
+
+#introduce_jNavigation2 a.mui-control-item.mui-active,#introduce_jNavigation2 a.vj-tablecell.mui-active{
+  background-color: rgba(255,255,255,0);
+  color: #00E9FF;
+  border-color: #00E9FF;
+}
+
+#introduce_jNavigation2 .mui-control-item .mui-icon,#introduce_jNavigation2 .mui-control-item .mui-icon-extra,#introduce_jNavigation2 .vj-tablecell .mui-icon,#introduce_jNavigation2 .vj-tablecell .mui-icon-extra{
+  color: #fff;
+  background-color: #000000;
+  border-color: #000000;
+}
+
+#introduce_jNavigation2 .mui-control-item.mui-active .mui-icon,#introduce_jNavigation2 .mui-control-item.mui-active .mui-icon-extra,#introduce_jNavigation2 .vj-tablecell.mui-active .mui-icon,#introduce_jNavigation2 .vj-tablecell.mui-active .mui-icon-extra{
+  color: #fff;
+  background-color: #00E9FF;
+  border-color: #00E9FF;
+}
+
+#introduce_jNavigation2_item1.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item1.mui-control-item .mui-icon,#introduce_jNavigation2_item1.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item1.vj-tablecell .mui-icon{
+  border-color: #00AEEB;
+}
+
+#introduce_jNavigation2_item2.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item2.mui-control-item .mui-icon,#introduce_jNavigation2_item2.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item2.vj-tablecell .mui-icon{
+  border-color: #9D6EE5;
+}
+
+#introduce_jNavigation2_item3.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item3.mui-control-item .mui-icon,#introduce_jNavigation2_item3.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item3.vj-tablecell .mui-icon{
+  border-color: #00C293;
+}
+
+#introduce_jNavigation2_item4.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item4.mui-control-item .mui-icon,#introduce_jNavigation2_item4.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item4.vj-tablecell .mui-icon{
+  border-color: #FF5290;
+}
+
+#introduce_jNavigation2_item5.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item5.mui-control-item .mui-icon,#introduce_jNavigation2_item5.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item5.vj-tablecell .mui-icon{
+  border-color: #84C316;
+}
+
+#introduce_jNavigation2_item6.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item6.mui-control-item .mui-icon,#introduce_jNavigation2_item6.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item6.vj-tablecell .mui-icon{
+  border-color: #FF7259;
+}
+
+#introduce_jNavigation2_item7.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item7.mui-control-item .mui-icon,#introduce_jNavigation2_item7.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item7.vj-tablecell .mui-icon{
+  border-color: #4083F7;
+}
+
+#introduce_jNavigation2_item8.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item8.mui-control-item .mui-icon,#introduce_jNavigation2_item8.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item8.vj-tablecell .mui-icon{
+  border-color: #35AFCE;
+}
+
+#introduce_jNavigation2_item9.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item9.mui-control-item .mui-icon,#introduce_jNavigation2_item9.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item9.vj-tablecell .mui-icon{
+  border-color: #00C194;
+}
+
+#introduce_jNavigation2_item10.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item10.mui-control-item .mui-icon,#introduce_jNavigation2_item10.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item10.vj-tablecell .mui-icon{
+  border-color: #4083F7;
+}
+
+#introduce_jNavigation2_item1.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item1.mui-control-item .mui-icon,#introduce_jNavigation2_item1.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item1.vj-tablecell .mui-icon{
+  background-color: #00AEEB;
+}
+
+#introduce_jNavigation2_item2.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item2.mui-control-item .mui-icon,#introduce_jNavigation2_item2.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item2.vj-tablecell .mui-icon{
+  background-color: #9D6EE5;
+}
+
+#introduce_jNavigation2_item3.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item3.mui-control-item .mui-icon,#introduce_jNavigation2_item3.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item3.vj-tablecell .mui-icon{
+  background-color: #00C293;
+}
+
+#introduce_jNavigation2_item4.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item4.mui-control-item .mui-icon,#introduce_jNavigation2_item4.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item4.vj-tablecell .mui-icon{
+  background-color: #FF5290;
+}
+
+#introduce_jNavigation2_item5.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item5.mui-control-item .mui-icon,#introduce_jNavigation2_item5.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item5.vj-tablecell .mui-icon{
+  background-color: #84C316;
+}
+
+#introduce_jNavigation2_item6.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item6.mui-control-item .mui-icon,#introduce_jNavigation2_item6.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item6.vj-tablecell .mui-icon{
+  background-color: #FF7259;
+}
+
+#introduce_jNavigation2_item7.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item7.mui-control-item .mui-icon,#introduce_jNavigation2_item7.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item7.vj-tablecell .mui-icon{
+  background-color: #4083F7;
+}
+
+#introduce_jNavigation2_item8.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item8.mui-control-item .mui-icon,#introduce_jNavigation2_item8.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item8.vj-tablecell .mui-icon{
+  background-color: #35AFCE;
+}
+
+#introduce_jNavigation2_item9.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item9.mui-control-item .mui-icon,#introduce_jNavigation2_item9.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item9.vj-tablecell .mui-icon{
+  background-color: #00C194;
+}
+
+#introduce_jNavigation2_item10.mui-control-item .mui-icon-extra,#introduce_jNavigation2_item10.mui-control-item .mui-icon,#introduce_jNavigation2_item10.vj-tablecell .mui-icon-extra,#introduce_jNavigation2_item10.vj-tablecell .mui-icon{
+  background-color: #4083F7;
+}
+
+#introduce_jPanel3{
+  width: 100%;
+  min-height: 10px;
+}
+
+#introduce_jPanel4{
+  width: 100%;
+  min-height: 68px;
+}
+
+#introduce_jNavigation1,#introduce_jNavigation1 .mui-control-item,#introduce_jNavigation1,#introduce_jNavigation1 .vj-tablecell{
+  border-color: #999999;
+}
+
+#introduce_jNavigation1{
+  background-color: #FAFAFA;
+}
+
+#introduce_jNavigation1 .mui-control-item,#introduce_jNavigation1 .vj-tablecell{
+  color: #999999;
+}
+
+#introduce_jNavigation1 a.mui-control-item.mui-active,#introduce_jNavigation1 a.vj-tablecell.mui-active{
+  background-color: rgba(255,255,255,0);
+  color: #0080C0;
+  border-color: #0080C0;
+}
+
+#introduce_jNavigation1 .mui-control-item.mui-active .mui-icon,#introduce_jNavigation1 .mui-control-item.mui-active .mui-icon-extra,#introduce_jNavigation1 .vj-tablecell.mui-active .mui-icon,#introduce_jNavigation1 .vj-tablecell.mui-active .mui-icon-extra{
+  color: #0080C0;
+  border-color: #0080C0;
+}
+
